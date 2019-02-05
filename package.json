@@ -1,0 +1,35 @@
+{
+  "name": "text-slider",
+  "version": "1.0.0",
+  "description": "A react native text slider module",
+  "main": "src/text-slider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paingha/react-native-text-slider.git"
+  },
+  "keywords": [
+    "React native slider",
+    "React native text slider",
+    "react native slider"
+  ],
+  "author": "Paingha Joe Alagoa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paingha/react-native-text-slider/issues"
+  },
+  "homepage": "https://github.com/paingha/react-native-text-slider#readme",
+  "devDependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-native": "^0.58.3"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  },
+  "files": [
+    "src"
+  ]
+}
