@@ -9,20 +9,26 @@ export default class TextSlider extends React.Component{
             frequency: this.props.frequency,
             currentIndex: this.props.currentIndex,
             slideText: this.props.slideText,
-            currentText: this.props.slideText[0]
+            currentText: this.props.slideText[0],
+            intervalID: null
         }
     }
     componentDidMount(){
         this.setSlider();
     }
+    componentWillUnmount(){
+        const {intervalID} = this.state;
+        clearInterval(intervalID);
+    }
     setSlider(){
         const {frequency, slideText, currentIndex} = this.state
-        const interval = setInterval(()=>{
+        const intervalid = setInterval(()=>{
           this.setState({currentIndex: currentIndex + 1, currentText: slideText[currentIndex]})
             if (currentIndex >= slideText.length){
               this.setState({currentIndex: 0})
             }
         }, frequency)
+        this.setState({intervalID: intervalid})
       }
     render(){
         const {currentText, slideText, currentIndex} = this.state
