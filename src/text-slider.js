@@ -12,6 +12,8 @@ export default class TextSlider extends React.Component{
             currentText: this.props.slideText[0],
             intervalID: null
         }
+        this.keyCount = 0;
+        this.getKey = this.getKey.bind(this);
     }
     componentDidMount(){
         this.setSlider();
@@ -19,6 +21,10 @@ export default class TextSlider extends React.Component{
     componentWillUnmount(){
         const {intervalID} = this.state;
         clearInterval(intervalID);
+    }
+    
+    getKey(){
+    return this.keyCount++;
     }
     setSlider(){
         const {frequency, slideText, currentIndex} = this.state
@@ -39,11 +45,11 @@ export default class TextSlider extends React.Component{
         <View style={{flexDirection:'row', marginTop: 8, justifyContent:'space-evenly', alignContent:'space-between'}}>
         {slideText.map((item, index)=>{
           if(currentIndex == index){
-            return <View style={{...styles.activeDot, ...activeDotStyle}}/>
+            return <View key={this.getKey()} style={{...styles.activeDot, ...activeDotStyle}}/>
             
           }
           else{
-            return <View style={{...styles.inactiveDot, ...inactiveDotStyle}}/>
+            return <View key={this.getKey()} style={{...styles.inactiveDot, ...inactiveDotStyle}}/>
           }
         })}
         </View>
